@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Bot Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+        </style>
+        <link href="css/botchat.css" rel="stylesheet" />
+        <link href="css/botchat-fullwindow.css" rel="stylesheet" />
+</head>     
+
+<body>
+    <div id="bot"></div>
+    <script src="https://unpkg.com/botframework-webchat/botchat.js"></script>
+    <script>
+        BotChat.App({
+            directLine: { secret: '33d__JpR8Lc.cwA.BFI.cZp1btms6zmaFya-LsQhRXm_8mH5iS-QOD4Xpwj2-Gw' },
+            user: { id: 'human' },
+            bot: { id: 'cobra' },
+            resize: 'detect'
+        }, document.getElementById("bot"));
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
