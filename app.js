@@ -1,5 +1,7 @@
 var restify = require('restify');
 var builder = require('botbuilder');
+var request = require('request');
+require('dotenv-extended').load();
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -32,8 +34,28 @@ var model = 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/' + proce
 var recognizer = new builder.LuisRecognizer(model)
 var dialog = new builder.IntentDialog({ recognizers: [recognizer] });
 
-bot.dialog('/', [
-    (session, args)=> {
-        session.send("Hello world");
-    }
-]);
+bot.dialog('/', dialog)
+    .onDefault((session, results) => {
+        session.send("Sorry, I didn't understand that.")
+        session.endDialog()
+    })
+    .matches('Quote', [
+        function (session) {
+            request('http://nnr-docker.cloudapp.net', function (error, response, body) {
+                console.log('error: ', error); //Print the error if one occurred
+                console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
+                console.log('body: ', body); //Print the HTML for the bot homepage.
+                session.send(body);
+                session.endDialog();
+            });
+        }
+    ])
+    .matches('Greeting', [
+        function (session) {
+            session.send("Hello! I am not your average 'artificially intelligent' chat bot. " + 
+            "I use a Recurrent Neural Network (RNN) to generate text that will look like the data it was trained on. " + 
+            "I've been trained on a dataset of the complete works of William Shakespeare. " + 
+            "Ask me for a 'Quote' and I will respond with sample content inspired by the greatest!");
+            session.endDialog()
+        }
+    ])
