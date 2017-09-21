@@ -178,6 +178,7 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
   word-break: break-word; }
 
 .wc-message-content.clickable {
+  color: #00ff00; 
   cursor: pointer; }
 
 .wc-message-content.selected {
