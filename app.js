@@ -41,7 +41,7 @@ bot.dialog('/', dialog)
     })
     .matches('Quote', [
         function (session) {
-            request('http://13.90.251.217', function (error, response, body) {
+            request('http://13.90.215.131', function (error, response, body) {
                 console.log('error: ', error); //Print the error if one occurred
                 console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
                 console.log('body: ', body); //Print the HTML for the bot homepage.
@@ -58,5 +58,38 @@ bot.dialog('/', dialog)
             "Ask me for a 'Quote' and I will respond with sample content inspired by the greatest! " +
             "Source code is available at https://github.com/OperationCobra/RNNBot today.");
             session.endDialog()
+        }
+    ])
+    .matches('Startup', [
+        function (session) {
+            request('http://13.90.215.131/startup', function (error, response, body) {
+                console.log('error: ', error); //Print the error if one occurred
+                console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
+                console.log('body: ', body); //Print the HTML for the bot homepage.
+                session.send(body);
+                session.endDialog();
+            });
+        }
+    ])
+    .matches('Names', [
+        function (session) {
+            request('http://13.90.215.131/femalename', function (error, response, body) {
+                console.log('error: ', error); //Print the error if one occurred
+                console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
+                console.log('body: ', body); //Print the HTML for the bot homepage.
+                session.send(body);
+                session.endDialog();
+            });
+        }
+    ])
+    .matches('Trump', [
+        function (session) {
+            request('http://13.90.215.131/trump', function (error, response, body) {
+                console.log('error: ', error); //Print the error if one occurred
+                console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
+                console.log('body: ', body); //Print the HTML for the bot homepage.
+                session.send(body);
+                session.endDialog();
+            });
         }
     ])
