@@ -177,9 +177,13 @@ body .wc-app, .wc-app button, .wc-app input, .wc-app textarea {
   padding: 8px 0px 8px 0px;
   word-break: break-word; }
 
-.wc-message-content.clickable {
-  color: #00ff00; 
-  cursor: pointer; }
+.wc-message-content.clickable a {
+    cursor: pointer; }
+
+a:-webkit-any-link {
+    color: #00ff00; 
+    cursor: pointer;
+    text-decoration: underline; }
 
 .wc-message-content.selected {
   box-shadow: 0px 1px 1px 0px #ffa333; }
