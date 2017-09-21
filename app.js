@@ -45,7 +45,9 @@ bot.dialog('/', dialog)
                 console.log('error: ', error); //Print the error if one occurred
                 console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
                 console.log('body: ', body); //Print the HTML for the bot homepage.
-                session.send(body);
+                body = body.replace(/\\n/g, "\n\n");
+                body = body.replace(/\\t/g, "\t");
+                session.send(body.slice(1, -1));
                 session.endDialog();
             });
         }
@@ -66,7 +68,9 @@ bot.dialog('/', dialog)
                 console.log('error: ', error); //Print the error if one occurred
                 console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
                 console.log('body: ', body); //Print the HTML for the bot homepage.
-                session.send(body);
+                body = body.replace(/\\n/g, "\n\n");
+                body = body.replace(/\\t/g, "\t");
+                session.send(body.slice(1, -1));
                 session.endDialog();
             });
         }
@@ -77,7 +81,9 @@ bot.dialog('/', dialog)
                 console.log('error: ', error); //Print the error if one occurred
                 console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
                 console.log('body: ', body); //Print the HTML for the bot homepage.
-                session.send(body);
+                body = body.replace(/\\n/g, "\n\n");
+                body = body.replace(/\\t/g, "\t");
+                session.send(body.slice(1, -1));
                 session.endDialog();
             });
         }
@@ -88,7 +94,9 @@ bot.dialog('/', dialog)
                 console.log('error: ', error); //Print the error if one occurred
                 console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
                 console.log('body: ', body); //Print the HTML for the bot homepage.
-                session.send(body);
+                body = body.replace(/\\n/g, "\n\n");
+                body = body.replace(/\\t/g, "\t");
+                session.send(body.slice(1, -1));
                 session.endDialog();
             });
         }
