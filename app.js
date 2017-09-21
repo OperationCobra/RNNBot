@@ -55,7 +55,8 @@ bot.dialog('/', dialog)
             session.send("Hello! I am not your average 'artificially intelligent' chat bot. " + 
             "I use a Recurrent Neural Network (RNN) to generate text that will look like the data it was trained on. " + 
             "I've been trained on a dataset of the complete works of William Shakespeare. " + 
-            "Ask me for a 'Quote' and I will respond with sample content inspired by the greatest!");
+            "Ask me for a 'Quote' and I will respond with sample content inspired by the greatest! " +
+            "Source code is available at https://github.com/OperationCobra/RNNBot today.");
             session.endDialog()
         }
     ])
