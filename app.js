@@ -7,7 +7,7 @@ require('dotenv-extended').load();
 var server = restify.createServer();
 server.use(restify.plugins.bodyParser());
 server.listen(process.env.port || process.env.PORT || 3978, function () {
-    console.log('%s listening to %s', server.name, server.url);
+   console.log('%s listening to %s', server.name, server.url); 
 });
 
 // Create chat connector for communicating with the Bot Framework Service
@@ -41,7 +41,7 @@ bot.dialog('/', dialog)
     })
     .matches('Quote', [
         function (session) {
-            request('http://nnr-docker.cloudapp.net', function (error, response, body) {
+            request('http://13.90.251.217', function (error, response, body) {
                 console.log('error: ', error); //Print the error if one occurred
                 console.log('statusCode: ', response && response.statusCode); //Print the response status code if a response was received
                 console.log('body: ', body); //Print the HTML for the bot homepage.
